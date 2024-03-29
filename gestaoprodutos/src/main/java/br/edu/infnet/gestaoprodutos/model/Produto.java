@@ -1,6 +1,8 @@
 package br.edu.infnet.gestaoprodutos.model;
 
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,14 +23,19 @@ import lombok.ToString;
 @Entity
 @Table(name = "T_PRODUTO")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Produto {
+public abstract class Produto implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Getter
 	@Setter
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_PRODUTO")
-	private Long ID;
+	private Long id;
 	
 	@Getter
 	@Setter
@@ -38,6 +45,6 @@ public abstract class Produto {
 	@Getter
 	@Setter
 	@Column(name = "VL_PRECO")
-	private Float PRECO;
+	private Float preco;
 
 }
