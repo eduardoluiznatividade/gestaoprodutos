@@ -32,7 +32,8 @@ public class SobremesaController {
 	public String pesquisar() {
 		return "/sobremesa/pesquisar-sobremesa";
 	}
-	@PostMapping("/cadastrarSobremesa")
+	
+	@PostMapping("/sobremesa/cadastrarSobremesa")
 	public String add(Model model,Sobremesa sobremesa,RedirectAttributes redirect) {
 		try {
 			sobremesaService.salvar(sobremesa);
