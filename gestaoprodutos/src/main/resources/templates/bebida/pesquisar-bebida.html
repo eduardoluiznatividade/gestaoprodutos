@@ -31,9 +31,74 @@
 <!-- Navbar -->
 <div th:replace="components/navbar.html"></div>
 
-<div class="container-fluid py-4">
-		Bebidas pesquisar
-</div>	
+<<div class="container-fluid py-4">
+		<div class="col-12">
+			<div class="card my-4">
+				<div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                    	<h6 class="text-black text-capitalize ps-3">Procura Bebidas</h6>
+                 </div>
+			</div>
+			 <form style="margin-top: 10px" role="form" action="#" th:method="post" th:action="@{pesquisar}" th:object="${bebida}"?>
+				<div class="row">
+					<div class="col-2">	
+						<div class=" mb-3" >
+                                <label for="codigoBebidas" class="form-label"  id="codigoBebidaLabel">Codigo:</label>
+                                <input type="text" th:name="${'id'}"  id="codigoBebida" class="form-control" th:required="required">
+                         </div>
+					</div>
+				</div> 
+				 
+				 <div class="text-center">
+                            <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-60 mt-4 mb-0">Buscar</button>
+                 </div>
+			 </form>
+			<div class="card-body px-0 pb-2">
+				<div class="table-responsive p-0">
+					<table class="table align-items-center mb-0">
+						<thead>
+							<tr>
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Codigo</th>
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome</th>
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Valor</th>
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tamanho</th>					
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gelada</th>
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Marca</th>				
+							</tr>
+						</thead>
+						<tbody>
+								  	<tr th:each="bebida : ${bebida}">
+								 <td>
+                                	<div class="d-flex px-2 py-1">
+                                    	<div class="d-flex flex-column justify-content-center">
+                                        	<h6 class="mb-0 text-sm" th:text="${bebida.id}"></h6>
+                                        </div>
+                                     </div>
+                               </td>
+                               <td>
+								   <p class="text-xs font-weight-bold mb-0" th:text="${bebida.nomeProduto}"></p>
+							   </td>
+                               <td>
+								   <p class="text-xs font-weight-bold mb-0" th:text="${bebida.preco}"></p>
+							   </td>						   
+							   <td>
+								   <p class="text-xs font-weight-bold mb-0" th:text="${bebida.tamanho}"></p>
+							   </td>
+							   <td>
+								   <p class="text-xs font-weight-bold mb-0" th:text="${bebida.gelada}"></p>
+							   </td>							 
+							   <td>
+								   <p class="text-xs font-weight-bold mb-0" th:text="${bebida.marca}"></p>
+							   </td> 							  
+							 </tr>	
+
+						</tbody>
+					</table>
+				</div>
+			</div>	
+			
+			
+		</div>
+	</div>
 
 
 

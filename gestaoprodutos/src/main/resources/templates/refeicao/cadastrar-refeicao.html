@@ -31,9 +31,32 @@
 <!-- Navbar -->
 <div th:replace="components/navbar.html"></div>
 
-<div class="container-fluid py-4">
-		Sobremesa cadastrar
-</div>	
+<div class="container-fluid">
+			<form role="form" action="#" th:method="post" th:action="@{cadastrar}" th:object="${refeicao}">
+				<fieldset class="form-group">
+					<legend>Refeiçao:</legend>
+					<label for="nome" class="form-label">Nome do prato:</label>
+					<input type="text" class="form-control" id="nome" aria-describedby="emailHelp"
+						th:required="required" th:field="*{nomeProduto}">
+					<label for="valor" class="form-label">Valor:</label>
+					<input type="text" class="form-control" id="valor" aria-describedby="emailHelp"
+						th:required="required" th:field="*{preco}">
+					<label for="peso" class="form-label">Peso:</label>
+					<input type="text" class="form-control" id="peso" aria-describedby="emailHelp"
+						th:required="required" th:field="*{peso}">
+					<p></p>
+					<input class="form-check-input" type="checkbox" role="switch" id="vegano" th:field="*{vegano}">
+					<label for="vegano" class="form-label">Vegano?</label>
+					<p></p>
+					<label for="ingredientes" class="form-label">Ingredientes:</label>
+					<input type="text" class="form-control" id="ingredientes" aria-describedby="emailHelp"
+						th:required="required" th:field="*{ingredientes}">
+					<p></p>
+					<button type="submit" class="btn btn-info">Cadastrar</button>
+					<button type="submit" class="btn btn-primary">Cancelar</button>
+				</fieldset>
+				</form>
+		</div>
 
 
 
