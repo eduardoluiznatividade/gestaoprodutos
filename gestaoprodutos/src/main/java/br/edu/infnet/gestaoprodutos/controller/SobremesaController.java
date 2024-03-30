@@ -38,11 +38,25 @@ public class SobremesaController {
 		}	
 		return "sobremesa/listar-sobremesas";
 	}
+	
 	@GetMapping("/sobremesa/pesquisar")
-	public String pesquisar() {
+	public String procuraSobremesa(Model model,RedirectAttributes attributes) {		
+		model.addAttribute("sobremesa",model.getAttribute("sobremesaEncontrada"));
 		return "/sobremesa/pesquisar-sobremesa";
 	}
-	
+	@PostMapping("/sobremesa/pesquisar")
+	public String procuraSobremesa(Model model,Long id,RedirectAttributes attributes) {
+		System.out.println("codigo"+id);
+		Optional<Sobremesa> opSobremesa=sobremesaService.pesquisarPorCodigo(id);
+		try {
+			Sobremesa sobremesaEncontrada = opSobremesa.get();
+			System.out.println(sobremesaEncontrada);
+			attributes.addFlashAttribute("sobremesaEncontrada",sobremesaEncontrada);
+		}catch(Exception ex) {
+			
+		}	
+		return "redirect:../sobremesa/pesquisar";
+	}
 	@PostMapping("/sobremesa/cadastrar")
 	public String add(Model model,Sobremesa sobremesa,RedirectAttributes redirect) {
 		try {

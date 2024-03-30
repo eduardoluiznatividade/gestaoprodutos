@@ -32,8 +32,62 @@
 <div th:replace="components/navbar.html"></div>
 
 <div class="container-fluid py-4">
-		produto pesquisar
-</div>	
+		<div class="col-12">
+			<div class="card my-4">
+				<div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                    	<h6 class="text-black text-capitalize ps-3">Procura Produtos</h6>
+                 </div>
+			</div>
+			 <form style="margin-top: 10px" role="form" action="#" th:method="post" th:action="@{pesquisar}" th:object="${produto}"?>
+				<div class="row">
+					<div class="col-2">	
+						<div class=" mb-3" >
+							<label for="idSobremesa" class="form-label" id="idSobremesa">Codigo:</label>
+							<input type="text" th:name="${'id'}" id="idSobremesa" class="form-control"
+										th:required="required">
+                         </div>
+					</div>
+				</div> 
+				 
+				 <div class="text-center">
+                            <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-60 mt-4 mb-0">Buscar</button>
+                 </div>
+			 </form>
+			<div class="card-body px-0 pb-2">
+				<div class="table-responsive p-0">
+					<table class="table align-items-center mb-0">
+						<thead>
+							<tr>
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Codigo</th>
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome</th>
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Valor</th>				
+							</tr>
+						</thead>
+						<tbody>
+								  	<tr th:each="produto : ${produto}">
+								 <td>
+                                	<div class="d-flex px-2 py-1">
+                                    	<div class="d-flex flex-column justify-content-center">
+                                        	<h6 class="mb-0 text-sm" th:text="${produto.id}"></h6>
+                                        </div>
+                                     </div>
+                               </td>
+                               <td>
+								   <p class="text-xs font-weight-bold mb-0" th:text="${produto.nomeProduto}"></p>
+							   </td>
+                               <td>
+								   <p class="text-xs font-weight-bold mb-0" th:text="${produto.preco}"></p>
+							   </td>
+							 </tr>	
+
+						</tbody>
+					</table>
+				</div>
+			</div>	
+			
+			
+		</div>
+	</div>	
 
 
 

@@ -28,16 +28,16 @@ public class ProdutoController {
 		return "/produto/pesquisar-produto";
 	}
 	@PostMapping("/produto/pesquisar")
-	public String pesquisar(Model model,Long codigo,RedirectAttributes attributes) {
+	public String pesquisar(Model model,Long id,RedirectAttributes attributes) {
 		
-		Optional<Produto> opProduto=produtoService.pesquisarPorCodigo(codigo);
+		Optional<Produto> opProduto=produtoService.pesquisarPorCodigo(id);
 		try {
 			Produto produtoEncontrado = opProduto.get();
 			attributes.addFlashAttribute("produtoEncontrado",produtoEncontrado);
 		}catch(Exception ex) {
 			
 		}	
-		return "redirect:/produto/pesquisar-produto";
+		return "redirect:../produto/pesquisar";
 	}
 	@GetMapping("/produto/listar")
 	public String listar(Model model) {
