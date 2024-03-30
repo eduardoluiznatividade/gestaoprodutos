@@ -1,5 +1,8 @@
 package br.edu.infnet.gestaoprodutos.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,18 +27,26 @@ public class SobremesaController {
 	}
 	
 	@GetMapping("/sobremesa/listar")
-	public String listar() {
-		return "/sobremesa/listar-sobremesas";
+	public String listaSobremesa(Model model,Sobremesa sobremesa) {
+		
+		Optional<List<Sobremesa>> opListaSobremesa = sobremesaService.pesquisarTodos();
+		try {
+			List<Sobremesa> ListaSobremesa = opListaSobremesa.get();
+			model.addAttribute("sobremesa",ListaSobremesa);
+		}catch(Exception e) {
+			return "sobremesa/listar-sobremesas";
+		}	
+		return "sobremesa/listar-sobremesas";
 	}
-	
 	@GetMapping("/sobremesa/pesquisar")
 	public String pesquisar() {
 		return "/sobremesa/pesquisar-sobremesa";
 	}
 	
-	@PostMapping("/sobremesa/cadastrarSobremesa")
+	@PostMapping("/sobremesa/cadastrar")
 	public String add(Model model,Sobremesa sobremesa,RedirectAttributes redirect) {
 		try {
+			System.out.println(sobremesa);
 			sobremesaService.salvar(sobremesa);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -44,7 +55,7 @@ public class SobremesaController {
 			//redirecionar para pagina de erro
 		}
 		
-		return "redirect:../home";
+		return "redirect:../sobremesa/listar";
 	}
 	 
 	
