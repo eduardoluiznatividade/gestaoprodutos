@@ -23,7 +23,7 @@
 	<ul class="navbar-nav">
 		<!-- INICO MENU LOGIN -->
 		<li class="nav-item">
-			<a class="nav-link text-white" th:href="@{/gestaoprodutos/login}">
+			<a class="nav-link text-white" th:href="@{/gestaoprodutos/login/login}">
 				<div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
 					<i class="material-icons opacity-10">login</i>
 			 	</div>
@@ -35,7 +35,7 @@
 		<!-- INICO MENU LOGIN -->	
 				
 		<!-- INICIO MENU PRODUTOS -->
-		<li class="nav-item">
+		<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 			<a class="nav-link text-white" data-bs-toggle="collapse" href="#menuproduto">
 				<div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
 					<i class="material-icons opacity-10">menu_book</i>
@@ -47,14 +47,14 @@
 		
 			<!-- INICO SUMBMENU Produtos -->
 			<ul id="menuproduto" class="collapse list-unstyled">
-				<li class="nav-item">
-				<a class="nav-link text-white" th:href="@{/gestaoprodutos/produto/listar}">
+				<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
+				<a class="nav-link text-white">
 					<span class="nav-link-text ms-1">
 						Listar Produtos
 					</span>
 				</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 					<a class="nav-link text-white" th:href="@{/gestaoprodutos/produto/pesquisar}">
 						<span class="nav-link-text ms-1">
 					   		Procurar Produtos
@@ -68,8 +68,8 @@
 		<!-- FINAL MENU PRODUTO -->
 			
 		<!-- INICIO MENU BEBIDA -->
-		<li class="nav-item">
-			<a class="nav-link text-white" data-bs-toggle="collapse" href="#menubebidas">
+		<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
+			<a class="nav-link text-white" data-bs-toggle="collapse" href="#menubebidas" >
 				<div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
 					<i class="material-icons opacity-10">liquor</i>
 				</div>
@@ -80,21 +80,21 @@
 		
 			<!-- INICO SUMBMENU BEBIDA -->
 			<ul id="menubebidas" class="collapse list-unstyled">
-				<li class="nav-item">
+				<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 					<a class="nav-link text-white" th:href="@{/gestaoprodutos/bebida/cadastrar}">
 						<span class="nav-link-text ms-1">
 						   	Cadastrar Bebida
 						</span>
 				  	</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 					<a class="nav-link text-white" th:href="@{/gestaoprodutos/bebida/listar}">
 						<span class="nav-link-text ms-1">
 						   	Listar Bebidas
 						</span>
 				  	</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 				  	<a class="nav-link text-white" th:href="@{/gestaoprodutos/bebida/pesquisar}">
 						<span class="nav-link-text ms-1">
 					   		Procurar Bebida
@@ -108,7 +108,7 @@
 		<!-- FINAL MENU BEBIDA -->
 	
 		<!-- INICIO MENU REFEICAO -->
-		<li class="nav-item">
+		<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 			<a class="nav-link text-white" data-bs-toggle="collapse" href="#menurefeicao">
 				<div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
 					<i class="material-icons opacity-10">dinner_dining</i>
@@ -120,21 +120,21 @@
 		
 			<!-- INICO SUMBMENU REFEICOES -->
 			<ul id="menurefeicao" class="collapse list-unstyled">
-				<li class="nav-item">
+				<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 					<a class="nav-link text-white" th:href="@{/gestaoprodutos/refeicao/cadastrar}">
 				  		<span class="nav-link-text ms-1">
 				   			Cadastrar Refeição
 				   		</span>
 					</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 					<a class="nav-link text-white" th:href="@{/gestaoprodutos/refeicao/listar}">
 				  		<span class="nav-link-text ms-1">
 				   			Listar Refeições
 				   		</span>
 					</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 					<a class="nav-link text-white" th:href="@{/gestaoprodutos/refeicao/pesquisar}">
 						<span class="nav-link-text ms-1">
 							Procurar Refeição
@@ -148,7 +148,7 @@
 			<!-- FINAL MENU REFEICAO -->
 	
 			<!-- INICIO MENU SOBREMESA -->
-			<li class="nav-item">
+			<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 				<a class="nav-link text-white" data-bs-toggle="collapse" href="#menusobremesa">
 					<div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
 						<i class="material-icons opacity-10">icecream</i>
@@ -160,21 +160,21 @@
 	
 				<!-- INICO SUMBMENU SOBREMESA -->
 				<ul id="menusobremesa" class="collapse list-unstyled">
-					<li class="nav-item">
+					<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 				  		<a class="nav-link text-white" th:href="@{/gestaoprodutos/sobremesa/cadastrar}">
 					   		<span class="nav-link-text ms-1">
 					   			Cadastrar sobremesa
 					   		</span>
 				  		</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 				  		<a class="nav-link text-white" th:href="@{/gestaoprodutos/sobremesa/listar}">
 					   		<span class="nav-link-text ms-1">
 					   			Listar sobremesas
 					   		</span>
 				  		</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item" th:if="${#ctx.session.loginAutorizado != null}">
 				  		<a class="nav-link text-white" th:href="@{/gestaoprodutos/sobremesa/pesquisar}">
 					   		<span class="nav-link-text ms-1">
 					   			Procurar sobremesa

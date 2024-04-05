@@ -35,25 +35,34 @@
 			<form role="form" action="#" th:method="post" th:action="@{cadastrar}" th:object="${bebida}">
 				<fieldset class="form-group">
 					<legend>Bebidas:</legend>
-					<label for="nome" class="form-label">Nome da bebida:</label>
-					<input type="text" class="form-control" id="nome" aria-describedby="emailHelp"
-						th:required="required" th:field="*{nomeProduto}">
-					<label for="valor" class="form-label">Valor:</label>
-					<input type="text" class="form-control" id="valor" aria-describedby="emailHelp"
-						th:required="required" th:field="*{preco}">
-					<label for="tamanho" class="form-label">Tamanho:</label>
-					<input type="text" class="form-control" id="tamanho" aria-describedby="emailHelp"
-						th:required="required" th:field="*{tamanho}">
-					<p></p>
-					<input class="form-check-input" type="checkbox" role="switch" id="gelada" th:field="*{gelada}">
-					<label for="gelada" class="form-label">Gelada?</label>
-					<p></p>
-					<label for="marca" class="form-label">Marca:</label>
-					<input type="text" class="form-control" id="marca" aria-describedby="emailHelp"
-						th:required="required" th:field="*{marca}">
-					<p></p>
-					<button type="submit" class="btn btn-info">Cadastrar</button>
-					<button type="submit" class="btn btn-primary">Cancelar</button>
+					<div class="mb-3">
+						<label for="nome" class="form-label">Nome da bebida:</label>
+						<input type="text" class="form-control bg-white border border-secondary" id="nome" aria-describedby="emailHelp"
+							th:required="required" th:field="*{nomeProduto}">
+					</div>
+					<div class="mb-3">
+						<label for="valor" class="form-label">Valor:</label>
+						<input type="text" class="form-control bg-white border border-secondary" id="valor" aria-describedby="emailHelp"
+							th:required="required" th:field="*{preco}">
+					</div>
+					<div class="mb-3">
+						<label for="tamanho" class="form-label">Tamanho:</label>
+						<input type="text" class="form-control bg-white border border-secondary" id="tamanho" aria-describedby="emailHelp"
+							th:required="required" th:field="*{tamanho}">
+					</div>
+					<div class="mb-3">
+						<label for="marca" class="form-label">Marca:</label>
+						<input type="text" class="form-control bg-white border border-secondary" id="marca" aria-describedby="emailHelp"
+							th:required="required" th:field="*{marca}">
+					</div>
+					<div class="mb-3">
+						<input class="form-check-input bg-white border border-secondary" type="checkbox" role="switch" id="gelada" th:field="*{gelada}">
+						<label for="gelada" class="form-label">Gelada?</label>
+					</div>
+					<div class="mb-3">
+						<button type="submit" class="btn btn-info">Cadastrar</button>
+						<button type="reset" class="btn btn-primary">Limpar</button>
+					</div>
 				</fieldset>
 				</form>
 		</div>	

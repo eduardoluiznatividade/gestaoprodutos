@@ -1,6 +1,8 @@
 package br.edu.infnet.gestaoprodutos.model;
 
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
@@ -16,7 +18,9 @@ import lombok.ToString;
 @Entity
 @Table(name = "T_BEBIDA")
 @PrimaryKeyJoinColumn(name = "FK_PRODUTO")
-public class Bebida extends Produto {
+public class Bebida extends Produto implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 		
 	@Getter
 	@Setter

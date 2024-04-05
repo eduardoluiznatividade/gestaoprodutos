@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" th:href="@{/assets/img/apple-icon.png}">
     <link rel="icon" type="image/png" th:href="@{/assets/img/favicon.png}">
     <title>
-        Gestão Produtos - Cadastrar Sobremesa
+        Gestão Produtos
     </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -31,41 +31,11 @@
 <!-- Navbar -->
 <div th:replace="components/navbar.html"></div>
 
-<div class="container-fluid">
-	<form role="form" action="#" th:method="post" th:action="@{cadastrar}" th:object="${sobremesa}">
-		<fieldset class="form-group">
-			<legend>Sobremesa:</legend>
-			<div class="mb-3">
-				<label for="nome" class="form-label">Nome da sobremesa:</label>
-				<input type="text" class="form-control bg-white border border-secondary" id="nomeProduto" aria-describedby="emailHelp"
-					th:required="required" th:field="*{nomeProduto}">
-			</div>
-			<div class="mb-3">
-				<label for="valor" class="form-label">Valor:</label>
-				<input type="text" class="form-control bg-white border border-secondary" id="preco" aria-describedby="emailHelp"
-					th:required="required" th:field="*{preco}">
-			</div>
-			<div class="mb-3">
-				<label for="informacao" class="form-label">Informação:</label>
-				<input type="text" class="form-control bg-white border border-secondary" id="informacao" aria-describedby="emailHelp"
-					th:required="required" th:field="*{informacao}">
-			</div>
-			<div class="mb-3">
-			<label for="quantidade" class="form-label">tamanho:</label>
-				<input type="text" class="form-control bg-white border border-secondary" id="tamanho" aria-describedby="emailHelp"
-					th:required="required" th:field="*{tamanho}">
-			</div>
-			<div class="mb-3">
-				<input class="form-check-input bg-white border border-secondary" type="checkbox" role="switch" id="doce" th:field="*{doce}">
-				<label for="doce" class="form-label">Doce?</label>
-			</div>
-			<div class="mb-3">
-				<button type="submit" class="btn btn-info">Cadastrar</button>
-				<button type="reset" class="btn btn-primary">Limpar</button>
-			</div>
-		</fieldset>
-	</form>
-</div>
+<div class="container-fluid py-4">
+		erro login
+</div>	
+
+
 
 <!--   Core JS Files   -->
 		<script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>

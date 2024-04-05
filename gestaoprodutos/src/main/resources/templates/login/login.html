@@ -31,9 +31,27 @@
 <!-- Navbar -->
 <div th:replace="components/navbar.html"></div>
 
-<div class="container-fluid py-4">
-		Login
-</div>	
+<div class="container-fluid">
+	<form role="form" action="#" th:method="post" th:action="@{autorizarAcesso}" th:object="${login}">
+		<fieldset class="form-group">
+			<legend>Autenticação</legend>
+			<div class="mb-3">
+				<label for="nome" class="form-label">Login:</label>
+				<input type="email" class="form-control bg-white border border-secondary" id="nomeProduto" aria-describedby="emailHelp"
+					th:required="required" th:field="*{email}">
+			</div>
+			<div class="mb-3">
+				<label for="valor" class="form-label">Senha:</label>
+				<input type="password" class="form-control bg-white border border-secondary" id="preco" aria-describedby="emailHelp"
+					th:required="required" th:field="*{senha}">
+			</div>
+			<div class="mb-3">
+				<button type="submit" class="btn btn-info">Acessar</button>
+				<button type="reset" class="btn btn-primary">Limpar</button>
+			</div>
+		</fieldset>
+	</form>
+</div>
 
 
 
